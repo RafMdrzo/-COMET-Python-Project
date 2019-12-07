@@ -135,6 +135,7 @@ def findReq(admin, currCourse):
         print(">>>>>> Adding Pre-Requisites <<<<<<")
         print("[1] Add a pre-requisite to this course.")
         print("[2] Remove a pre-requisite to this course.")
+        print("[3] View all pre-requisites")
         print("[3] Done.")
         reqChoice = int(input("Your Choice: "))
 
@@ -143,13 +144,13 @@ def findReq(admin, currCourse):
             reqCourse = input("Enter course code of the pre-requisite: ")
             bFound = int(0)
             for x in availableCourses:
-                if x.courseCode == reqCourse and len(availableCourses) != 1 and currCourse != reqCourse:
+                if x.courseCode == reqCourse and len(availableCourses) != 0 and currCourse != reqCourse:
                     preReqs.append(x)
                     bFound == int(1)
             if bFound is 1:
-                print("Pre-requisite is added!")
+                input("Pre-requisite is added! Press enter to continue.")
             else:
-                print("Pre-requisite does not exist.")
+                input("Pre-requisite does not exist. Press enter to continue")
 
         elif reqChoice is 2:
             for x in preReqs:
@@ -166,12 +167,18 @@ def findReq(admin, currCourse):
                     preReqs.remove(x)
                     bFound = 1
             if bFound is 1:
-                print("Pre-requisite is removed!")
+                input("Pre-requisite is removed! Press enter to continue.")
             else:
-                print("Pre-requisite does not exist.")
+                print("Pre-requisite does not exist. Press enter to continue")
 
 
         elif reqChoice is 3:
+            for x in preReqs:
+                print("Course Name: ", x.courseName)
+                print("Course Code: ", x.courseCode)
+                print("Course Weight: ", x.courseWeight)
+                print("====================================================")
+        elif reqChoice is 4:        
             reqExit = True
         else:
             pass
