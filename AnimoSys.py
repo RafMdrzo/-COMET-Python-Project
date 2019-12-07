@@ -136,7 +136,7 @@ def findReq(admin, currCourse):
         print("[1] Add a pre-requisite to this course.")
         print("[2] Remove a pre-requisite to this course.")
         print("[3] View all pre-requisites")
-        print("[3] Done.")
+        print("[4] Done.")
         reqChoice = int(input("Your Choice: "))
 
         if reqChoice is 1:
@@ -146,7 +146,7 @@ def findReq(admin, currCourse):
             for x in availableCourses:
                 if x.courseCode == reqCourse and len(availableCourses) != 0 and currCourse != reqCourse:
                     preReqs.append(x)
-                    bFound == int(1)
+                    bFound = int(1)
             if bFound is 1:
                 input("Pre-requisite is added! Press enter to continue.")
             else:
@@ -169,15 +169,16 @@ def findReq(admin, currCourse):
             if bFound is 1:
                 input("Pre-requisite is removed! Press enter to continue.")
             else:
-                print("Pre-requisite does not exist. Press enter to continue")
-
-
+                input("Pre-requisite does not exist. Press enter to continue")
         elif reqChoice is 3:
+            clear()
             for x in preReqs:
                 print("Course Name: ", x.courseName)
                 print("Course Code: ", x.courseCode)
                 print("Course Weight: ", x.courseWeight)
                 print("====================================================")
+
+            input("Press enter to continue.")
         elif reqChoice is 4:        
             reqExit = True
         else:
